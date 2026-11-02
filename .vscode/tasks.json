@@ -1,0 +1,18 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "LAN Rescue: Build",
+      "type": "shell",
+      "command": "dotnet build .\\LANRescue.sln",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "LAN Rescue: Run Console",
+      "type": "shell",
+      "command": "dotnet run --project .\\src\\LANRescue.Console\\LANRescue.Console.csproj",
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}

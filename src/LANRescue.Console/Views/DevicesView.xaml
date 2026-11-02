@@ -1,0 +1,36 @@
+<UserControl x:Class="LANRescue.ConsoleApp.Views.DevicesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Text="Managed devices" FontSize="25" FontWeight="Bold"
+                       Foreground="{StaticResource TextPrimaryBrush}"/>
+            <TextBlock Text="Sample inventory. Discovery and live Agent status are not implemented yet."
+                       Foreground="{StaticResource TextSecondaryBrush}" Margin="0,6,0,18"/>
+        </StackPanel>
+        <DockPanel Grid.Row="1" Margin="0,0,0,14">
+            <TextBox x:Name="SearchBox" Width="280" Height="34" Padding="8"
+                     VerticalContentAlignment="Center" TextChanged="SearchBox_TextChanged"
+                     ToolTip="Search by device, IP, or Rescue ID"/>
+            <TextBlock Text="  SAMPLE DATA" VerticalAlignment="Center"
+                       Foreground="{StaticResource WarningBrush}" FontWeight="SemiBold" FontSize="10"/>
+        </DockPanel>
+        <Border Grid.Row="2" Background="White" CornerRadius="10" Padding="10">
+            <DataGrid x:Name="DevicesGrid" ItemsSource="{Binding Devices}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Device" Binding="{Binding DeviceName}" Width="1.1*"/>
+                    <DataGridTextColumn Header="Rescue ID" Binding="{Binding RescueId}" Width="1.2*"/>
+                    <DataGridTextColumn Header="IPv4" Binding="{Binding IPv4}" Width="1.1*"/>
+                    <DataGridTextColumn Header="MAC Address" Binding="{Binding MacAddress}" Width="1.5*"/>
+                    <DataGridTextColumn Header="Agent" Binding="{Binding AgentStatus}" Width="0.8*"/>
+                    <DataGridTextColumn Header="IP Status" Binding="{Binding IpStatus}" Width="1*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</UserControl>
